@@ -1,6 +1,6 @@
 import { ToyPreview } from "./ToyPreview"
 
-export function ToyList({ toys, removeToy }) {
+export function ToyList({ toys, onRemoveToy }) {
 
     if (!toys || !toys.length) {
         return <h1 className="no-toys-indication">No toys to show..</h1>
@@ -10,7 +10,7 @@ export function ToyList({ toys, removeToy }) {
         <section className="toy-list">
             {toys.map(toy => {
                 return <ToyPreview key={toy._id + toy.createdAt}
-                    toy={toy} onRemoveToy={removeToy}
+                    toy={toy} onRemoveToy={onRemoveToy}
                 />
             })}
         </section>
