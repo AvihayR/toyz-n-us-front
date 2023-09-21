@@ -23,7 +23,6 @@ export function ToyIndex() {
 
     return (
         <>
-            <h1>Toy index</h1>
             <ToyList toys={toys} onRemoveToy={onRemoveToy} />
         </>
     )
