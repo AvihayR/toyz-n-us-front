@@ -19,6 +19,13 @@ export function ToyFilter({ onSetFilterBy, filterBy }) {
                 <label>
                     <input name="txt" type="text" placeholder="Search via text.." />
                 </label>
+                <label>
+                    <select name="inStock" onChange={handleChange}>
+                        <option value="">Filter by stock</option>
+                        <option value={true}>In stock</option>
+                        <option value={false}>Out of stock</option>
+                    </select>
+                </label>
             </form>
         </>
     )
