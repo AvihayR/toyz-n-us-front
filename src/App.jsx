@@ -15,6 +15,7 @@ import { ToyIndex } from './pages/ToyIndex.jsx'
 import { UserMsg } from './cmps/UserMsg.jsx'
 import { ToyDetails } from './pages/ToyDetails.jsx'
 import { ToyEdit } from './pages/ToyEdit.jsx'
+import { HomePage } from './pages/HomePage.jsx'
 
 export function App() {
   return (
@@ -24,10 +25,10 @@ export function App() {
         <section className="main-layout app">
           <main>
             <Routes>
-              <Route path="/" element={<ToyIndex />} />
-              <Route path="/toy" element={<ToyIndex />} />
-              <Route path="/toy/:toyId" element={<ToyDetails />} />
               <Route path="/toy/:toyId/edit" element={<ToyEdit />} />
+              <Route path="/toy/:toyId" element={<ToyDetails />} />
+              <Route path="/toy" element={<ToyIndex />} />
+              <Route path="/" element={<HomePage />} />
               {/* <Route path="/todo/:todoId" element={<TodoDetails />} /> */}
               {/* <Route element={<AboutUs />} path="/about" /> */}
               {/* <Route element={<CarIndex />} path="/car" /> */}
