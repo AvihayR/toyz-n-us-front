@@ -18,4 +18,5 @@
 @import 'cmps/TodoDetails.css';
 @import 'cmps/TodoFilter.css';
 @import 'cmps/AddTodo.css';
-@import 'cmps/ToyList.css'
+@import 'cmps/ToyList.css';
+@import 'cmps/ToyFilter.css';

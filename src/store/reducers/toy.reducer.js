@@ -26,7 +26,8 @@ export function toyReducer(state = initialState, action = {}) {
         case SET_FILTER_BY:
             return { ...state, filterBy: { ...state.filterBy, ...action.filterBy } }
         case LOAD_TOYS_FROM_STORAGE:
-            return { ...state, toys: action.toys.filter(t => !t.owner || t.owner && loggedUser && t.owner._id === loggedUser._id) }
+            return { ...state, toys: action.toys }
+        // return { ...state, toys: action.toys.filter(t => !t.owner || t.owner && loggedUser && t.owner._id === loggedUser._id) }
         default:
             return state
     }

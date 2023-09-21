@@ -26,12 +26,13 @@ export const toyService = {
 
 _createToys()
 
-function query(filterBy = { txt: '', status: '' }) {
+function query(filterBy = { txt: '', }) {
     // return axios.get(BASE_URL).then(res => res.data)
     return storageService.query(STORAGE_KEY)
         .then((toys) => {
             if (filterBy.txt)
-                toys = toys.filter(t => t.title.toLowerCase().includes(filterBy.txt.toLowerCase()))
+                return toys.filter(t => t.name.toLowerCase().includes(filterBy.txt.toLowerCase()))
+            // toys = toys.filter(t => t.name.includes(filterBy.txt))
             // if (filterBy.status === 'done') return toys.filter(t => t.isDone)
             // else if (filterBy.status === 'active') return toys.filter(t => !t.isDone)
 

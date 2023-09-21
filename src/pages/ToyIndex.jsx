@@ -3,17 +3,18 @@ import { useSelector } from 'react-redux';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { loadToys } from '../store/actions/toy.action.js'
 import { ToyList } from '../cmps/ToyList.jsx';
-
-import { removeToy } from '../store/actions/toy.action.js';
+import { ToyFilter } from '../cmps/ToyFilter.jsx';
+import { removeToy, setFilterBy } from '../store/actions/toy.action.js';
 
 export function ToyIndex() {
 
-    useEffect(() => {
-        loadToys()
-            .catch(err => showErrorMsg(err))
-    }, [])
-
     const toys = useSelector(storeState => storeState.toyModule.toys)
+    const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
+
+    useEffect(() => {
+        loadToys(filterBy)
+            .catch(err => showErrorMsg(err))
+    }, [filterBy])
 
     function onRemoveToy(toyId) {
         removeToy(toyId)
@@ -23,6 +24,7 @@ export function ToyIndex() {
 
     return (
         <>
+            <ToyFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
             <ToyList toys={toys} onRemoveToy={onRemoveToy} />
         </>
     )

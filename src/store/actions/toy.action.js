@@ -46,18 +46,6 @@ export function editToy(toy) {
     // return store.dispatch({ type: EDIT_TOY, toy })
 }
 
-// export function toggleIsDone(toy) {
-//     toy.isDone = !toy.isDone
-//     return toyService.save(toy)
-//         .then(
-//             store.dispatch({ type: TOGGLE_IS_DONE, toy })
-//         )
-//         .catch(err => {
-//             console.log('Error:', err)
-//             throw err
-//         })
-// }
-
 export function setFilterBy(filterBy) {
     store.dispatch({ type: SET_FILTER_BY, filterBy })
 }
