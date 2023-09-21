@@ -1,4 +1,12 @@
 :root {
+
+  --buzz-purple: #613B6F;
+  --buzz-green: #8DAC50;
+  --buzz-dirt: #F5C290;
+  --buzz-white: #FBFBFB;
+  --buzz-grey: #A89EA8;
+  --buzz-red: #DB382D;
+
   --clr1: #0a9396;
   --clr2: #ae2012;
 
@@ -11,4 +19,4 @@
   --gray2: rgb(155, 155, 155);
   --gray3: rgb(44, 44, 44);
 
-} 
+}
