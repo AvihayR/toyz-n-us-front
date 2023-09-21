@@ -21,7 +21,6 @@ export function toyReducer(state = initialState, action = {}) {
             return { ...state, toys: [...state.toys, action.toy] }
         case REMOVE_TOY:
             return { ...state, toys: state.toys.filter(t => t._id !== action._id) }
-        case TOGGLE_IS_DONE:
         case EDIT_TOY:
             return { ...state, toys: state.toys.map(toy => toy._id === action.toy._id ? action.toy : toy) }
         case SET_FILTER_BY:

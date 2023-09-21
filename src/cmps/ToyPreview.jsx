@@ -8,7 +8,7 @@ export function ToyPreview({ toy, onRemoveToy }) {
         <div className={'toy-preview'} onClick={() => navigate(`/toy/${toy._id}`)}>
             <h2 className="toy-name">{name}</h2>
             <h3 className="inStock">{inStock ? 'In stock!' : 'Out of stock'}</h3>
-            <h4 className="price">${price}</h4>
+            <h4 className="price">$ {price}</h4>
             <button onClick={(ev) => {
                 ev.stopPropagation()
                 onRemoveToy(_id)

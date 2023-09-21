@@ -1,10 +1,10 @@
 import { toyService } from "../../services/toy.service.js"
 import { userService } from "../../services/user.service.js"
-import { SET_FILTER_BY, ADD_TOY, REMOVE_TOY, TOGGLE_IS_DONE, LOAD_TOYS_FROM_STORAGE } from '../reducers/toy.reducer.js'
+import { SET_FILTER_BY, ADD_TOY, REMOVE_TOY, LOAD_TOYS_FROM_STORAGE, EDIT_TOY } from '../reducers/toy.reducer.js'
 import { store } from "../store.js"
 
 
-export function loadToys(filterBy = {}) {
+export function loadToys(filterBy = toyService.query()) {
     return toyService.query(filterBy)
         .then((toys) => {
             store.dispatch({ type: LOAD_TOYS_FROM_STORAGE, toys })
@@ -40,7 +40,10 @@ export function saveToy(toy) {
 }
 
 export function editToy(toy) {
-    return store.dispatch({ type: TOGGLE_IS_DONE, toy })
+    return saveToy(toy)
+        .then(store.dispatch({ type: EDIT_TOY, toy }))
+        .catch(err => { throw err })
+    // return store.dispatch({ type: EDIT_TOY, toy })
 }
 
 // export function toggleIsDone(toy) {
