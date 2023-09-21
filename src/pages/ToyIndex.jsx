@@ -1,15 +1,19 @@
-import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
+import { useSelector } from 'react-redux';
 
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
+import { loadToys } from '../store/actions/toy.action.js'
 
 
 export function ToyIndex() {
     useEffect(() => {
-        // loadTodos(filterBy)
-        // .catch(err => console.log(err))
-        console.log('hello')
+        loadToys()
+            .catch(err => showErrorMsg(err))
     },)
-    return (<h1>Toy index</h1>)
+    return (
+        <>
+            <h1>Toy index</h1>
+        </>
+    )
 }
 
