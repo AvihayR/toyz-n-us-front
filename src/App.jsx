@@ -1,18 +1,9 @@
-// const Router = ReactRouterDOM.HashRouter
-// const { Route, Routes } = ReactRouterDOM
-// const { Provider } = ReactRedux
-
-// import { AppHeader } from './cmps/AppHeader.jsx'
-// import { UserMsg } from './cmps/UserMsg.jsx'
-// // import { AppFooter } from './cmps/AppFooter.jsx'
-// import { TodoApp } from './pages/TodoApp.jsx'
-// import { TodoDetails } from './pages/TodoDetails.jsx'
-// import { store } from './store/store.js'
 import { Provider } from 'react-redux'
 import { store } from './store/store.js'
 import { Route, HashRouter as Router, Routes } from 'react-router-dom'
-import { ToyIndex } from './pages/ToyIndex.jsx'
 import { UserMsg } from './cmps/UserMsg.jsx'
+import { AppHeader } from './cmps/AppHeader.jsx'
+import { ToyIndex } from './pages/ToyIndex.jsx'
 import { ToyDetails } from './pages/ToyDetails.jsx'
 import { ToyEdit } from './pages/ToyEdit.jsx'
 import { HomePage } from './pages/HomePage.jsx'
@@ -21,7 +12,7 @@ export function App() {
   return (
     <Provider store={store}>
       <Router>
-        {/* <AppHeader /> */}
+        <AppHeader />
         <section className="main-layout app">
           <main>
             <Routes>
