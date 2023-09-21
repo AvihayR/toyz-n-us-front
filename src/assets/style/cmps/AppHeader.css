@@ -3,10 +3,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: lightgoldenrodyellow;
-  color: var(--clr2bg);
+  background-color: var(--buzz-grey);
+  color: var(--buzz-purple);
   padding: .5em 1em;
   margin-block-end: 1.5rem;
+}
+
+.app-header h1 span {
+  color: var(--buzz-green);
 }
 
 .app-header .links {
@@ -16,6 +20,7 @@
 
 .app-header .links a.active {
   font-weight: 700;
+  color: var(--buzz-green);
 }
 
 @media(max-width: 720px) {
