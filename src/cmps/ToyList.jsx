@@ -7,10 +7,12 @@ export function ToyList({ toys, removeToy }) {
     }
 
     return (
-        toys.map(toy => {
-            return <ToyPreview key={toy._id + toy.createdAt}
-                toy={toy} onRemoveToy={removeToy}
-            />
-        })
+        <section className="toy-list">
+            {toys.map(toy => {
+                return <ToyPreview key={toy._id + toy.createdAt}
+                    toy={toy} onRemoveToy={removeToy}
+                />
+            })}
+        </section>
     )
 }

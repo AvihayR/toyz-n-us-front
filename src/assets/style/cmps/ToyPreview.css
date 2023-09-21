@@ -1,0 +1,7 @@
+.toy-list .toy-preview {
+    background-color: gainsboro;
+    width: 10em;
+    text-align: center;
+    border-radius: 1em;
+    cursor: pointer;
+}

@@ -14,7 +14,8 @@
 @import 'cmps/UserMsg.css';
 
 @import 'cmps/TodoApp.css';
-@import 'cmps/TodoPreview.css';
+@import 'cmps/ToyPreview.css';
 @import 'cmps/TodoDetails.css';
 @import 'cmps/TodoFilter.css';
 @import 'cmps/AddTodo.css';
+@import 'cmps/ToyList.css'

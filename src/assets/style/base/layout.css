@@ -1,4 +1,7 @@
 .main-layout {
+  display: flex;
+  justify-content: center;
+  text-align: center;
   margin: 0 auto;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
@@ -16,5 +19,3 @@ footer {
   padding: 1em;
   text-align: center;
 }
-
-
