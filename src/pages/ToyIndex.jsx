@@ -5,7 +5,8 @@ import { loadToys } from '../store/actions/toy.action.js'
 import { ToyList } from '../cmps/ToyList.jsx';
 import { ToyFilter } from '../cmps/ToyFilter.jsx';
 import { AddBtn } from '../cmps/AddBtn.jsx';
-import { removeToy, setFilterBy } from '../store/actions/toy.action.js';
+import { AddToyDialog } from '../cmps/AddToyDialog.jsx';
+import { addToy, removeToy, setFilterBy } from '../store/actions/toy.action.js';
 
 export function ToyIndex() {
 
@@ -23,9 +24,13 @@ export function ToyIndex() {
             .catch(err => showErrorMsg(err))
     }
 
+    function onAddToy(toy) {
+        addToy(toy)
+    }
+
     return (
         <>
-            <AddBtn />
+            <AddToyDialog onAddToy={onAddToy} />
             <ToyFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
             <ToyList toys={toys} onRemoveToy={onRemoveToy} />
         </>
