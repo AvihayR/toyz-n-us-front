@@ -4,7 +4,9 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { loadToys } from '../store/actions/toy.action.js'
 import { ToyList } from '../cmps/ToyList.jsx';
 import { ToyFilter } from '../cmps/ToyFilter.jsx';
-import { removeToy, setFilterBy } from '../store/actions/toy.action.js';
+import { AddBtn } from '../cmps/AddBtn.jsx';
+import { AddToyDialog } from '../cmps/AddToyDialog.jsx';
+import { addToy, removeToy, setFilterBy } from '../store/actions/toy.action.js';
 
 export function ToyIndex() {
 
@@ -22,8 +24,13 @@ export function ToyIndex() {
             .catch(err => showErrorMsg(err))
     }
 
+    function onAddToy(toy) {
+        addToy(toy)
+    }
+
     return (
         <>
+            <AddToyDialog onAddToy={onAddToy} />
             <ToyFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
             <ToyList toys={toys} onRemoveToy={onRemoveToy} />
         </>

@@ -14,7 +14,7 @@ export const toyService = {
     getById,
     save,
     remove,
-    getEmptyTodo: getEmptyToy,
+    getEmptyToy,
 }
 
 // _createToys()
@@ -49,7 +49,7 @@ function save(toy) {
         return httpService.put(BASE_URL, toy)
     } else {
         // when switching to backend - remove the next line
-        // return httpService.post(BASE_URL + toy._id, toy)
+        return httpService.post(BASE_URL, toy)
         // todo.owner = userService.getLoggedinUser()
     }
 }

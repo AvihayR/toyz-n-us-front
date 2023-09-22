@@ -1,0 +1,12 @@
+.add-btn {
+    background-color: #ccf2ff;
+    border-radius: 5em;
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+}
+
+.add-btn:hover {
+    color: #ccf2ff;
+    background-color: rgb(60, 60, 60);
+}
