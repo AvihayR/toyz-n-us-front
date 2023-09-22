@@ -4,6 +4,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 import { loadToys } from '../store/actions/toy.action.js'
 import { ToyList } from '../cmps/ToyList.jsx';
 import { ToyFilter } from '../cmps/ToyFilter.jsx';
+import { AddBtn } from '../cmps/AddBtn.jsx';
 import { removeToy, setFilterBy } from '../store/actions/toy.action.js';
 
 export function ToyIndex() {
@@ -24,6 +25,7 @@ export function ToyIndex() {
 
     return (
         <>
+            <AddBtn />
             <ToyFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
             <ToyList toys={toys} onRemoveToy={onRemoveToy} />
         </>
