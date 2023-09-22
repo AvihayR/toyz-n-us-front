@@ -1,20 +1,13 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import toyDemoData from './toy.demo.data.js'
+import { httpService } from './http.service.js'
 
+const BASE_URL = 'toy/'
 const STORAGE_KEY = 'toyDB'
 
 const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle',
     'Outdoor', 'Battery Powered']
-
-// const toy = {
-//     _id: 't101',
-//     name: 'Talking Doll',
-//     price: 123,
-//     labels: ['Doll', 'Battery Powered', 'Baby'],
-//     createdAt: 1631031801011,
-//     inStock: true,
-// }
 
 export const toyService = {
     query,
@@ -24,42 +17,40 @@ export const toyService = {
     getEmptyTodo: getEmptyToy,
 }
 
-_createToys()
+// _createToys()
 
-function query(filterBy = { txt: '', }) {
+function query(filterBy = { txt: '', inStock: '' }) {
+    return httpService.get(BASE_URL, filterBy)
     // return axios.get(BASE_URL).then(res => res.data)
-    return storageService.query(STORAGE_KEY)
-        .then((toys) => {
+    // return storageService.query(STORAGE_KEY)
+    //     .then((toys) => {
+    //         if (filterBy.txt)
+    //             toys = toys.filter(t => t.name.toLowerCase().includes(filterBy.txt.toLowerCase()))
+    //         if (filterBy.inStock === 'true') {
+    //             return toys.filter(t => t.inStock)
+    //         }
+    //         else if (filterBy.inStock === 'false') {
+    //             return toys.filter(t => !t.inStock)
+    //         }
+    //         else return toys
 
-
-            if (filterBy.txt)
-                toys = toys.filter(t => t.name.toLowerCase().includes(filterBy.txt.toLowerCase()))
-
-            if (filterBy.inStock === 'true') {
-                return toys.filter(t => t.inStock)
-            }
-            else if (filterBy.inStock === 'false') {
-                return toys.filter(t => !t.inStock)
-            }
-            else return toys
-
-        })
+    //     })
 }
 function getById(toyId) {
-    return storageService.get(STORAGE_KEY, toyId)
+    return httpService.get(BASE_URL + toyId)
 }
 function remove(toyId) {
     // return Promise.reject('Not now!')
-    return storageService.remove(STORAGE_KEY, toyId)
+    return httpService.delete(BASE_URL + toyId)
 }
 
 function save(toy) {
     if (toy._id) {
-        return storageService.put(STORAGE_KEY, toy)
+        return httpService.put(BASE_URL, toy)
     } else {
         // when switching to backend - remove the next line
+        // return httpService.post(BASE_URL + toy._id, toy)
         // todo.owner = userService.getLoggedinUser()
-        return storageService.post(STORAGE_KEY, toy)
     }
 }
 

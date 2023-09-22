@@ -14,7 +14,7 @@ export function ToyDetails() {
 
     useEffect(() => {
         loadToy()
-    }, [toyId, toy])
+    }, [toyId])
 
     function loadToy() {
         toyService.getById(toyId)
@@ -38,7 +38,7 @@ export function ToyDetails() {
             // saveTeam(editedToy)
             editToy(editedToy)
                 .then(_ => {
-                    // setTeam(editedToy)
+                    setToy(editedToy)
                     showSuccessMsg('Toy saved successfully')
                 })
                 .catch(err => {
