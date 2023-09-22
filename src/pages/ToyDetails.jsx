@@ -14,7 +14,7 @@ export function ToyDetails() {
 
     useEffect(() => {
         loadToy()
-    }, [toyId])
+    }, [toyId, toy])
 
     function loadToy() {
         toyService.getById(toyId)
