@@ -12,6 +12,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 
 export function ToyFilter({ onSetFilterBy, filterBy }) {
 
+    const [inStock, setInStock] = useState('');
     const [sortBy, setSortBy] = useState('');
     onSetFilterBy = useRef(debounce(onSetFilterBy, 500))
 
@@ -37,6 +38,7 @@ export function ToyFilter({ onSetFilterBy, filterBy }) {
         onSetFilterBy.current(filterToSet)
 
         if (field === 'sortBy') setSortBy(value);
+        if (field === 'inStock') setInStock(value);
 
         console.log(filterToSet)
     }
@@ -47,16 +49,24 @@ export function ToyFilter({ onSetFilterBy, filterBy }) {
                 <label>
                     <input name="txt" type="text" placeholder="Search via text.." />
                 </label>
-                <label>
-                    <select name="inStock" onChange={handleChange}>
-                        <option value="">Filter by stock</option>
-                        <option value={true}>In stock</option>
-                        <option value={false}>Out of stock</option>
-                    </select>
-                </label>
+
+                <FormControl sx={{ m: 1, minWidth: 130 }} size="small">
+                    <InputLabel id="demo-select-small-label">Filter by stock 📦</InputLabel>
+                    <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        value={inStock}
+                        name="inStock"
+                        onChange={handleChange}
+                    >
+                        <MenuItem value="none"><em>none</em></MenuItem>
+                        <MenuItem value={true}>In stock</MenuItem>
+                        <MenuItem value={false}>Out of stock</MenuItem>
+                    </Select>
+                </FormControl>
 
                 <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-                    <InputLabel id="demo-select-small-label">Sort by</InputLabel>
+                    <InputLabel id="demo-select-small-label">Sort by 📂</InputLabel>
                     <Select
                         labelId="demo-select-small-label"
                         id="demo-select-small"
