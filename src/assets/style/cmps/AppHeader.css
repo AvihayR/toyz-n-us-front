@@ -9,6 +9,10 @@
   margin-block-end: 1.5rem;
 }
 
+.app-header .links {
+  font-size: 1.2rem;
+}
+
 .app-header h1 span {
   color: var(--toy-cyan);
 }
@@ -16,11 +20,12 @@
 .app-header .links {
   display: flex;
   gap: 1em;
+  font-weight: 700;
 }
 
 .app-header .links a.active {
-  font-weight: 700;
   color: var(--toy-cyan);
+  text-decoration: none;
 }
 
 @media(max-width: 720px) {
