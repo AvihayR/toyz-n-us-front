@@ -3,7 +3,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: var(--toy-light-grey); */
   background-color: var(--toy-blue);
   color: var(--toy-red);
   padding: .5em 1em;

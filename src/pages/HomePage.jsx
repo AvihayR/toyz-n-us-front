@@ -16,13 +16,13 @@ export function HomePage() {
     const toys = useSelector((state) => state.toyModule.toys)
 
 
-    return <section>
+    return <section className='home'>
         <div>
             {/* <img src={img} /> */}
-            <h2>
+            <h2 className='main-header'>
                 Welcome to Toyz-N-Us - Where Imagination Comes to Life!
             </h2>
-            <h4>
+            <h4 className='sub-header'>
                 Welcome to Toyz-N-Us, your go-to destination for a world of wonder and play! At Toyz-N-Us, we're all about creating moments of joy, sparking imagination, and fostering creativity in kids of all ages.
             </h4>
             <ul>

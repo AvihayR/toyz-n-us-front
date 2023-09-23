@@ -1,0 +1,31 @@
+main .home {}
+
+main .home .main-header {
+    color: var(--toy-red);
+}
+
+main .home .sub-header {
+    color: var(--toy-blue);
+}
+
+main .home ul {
+    margin-block: 2em;
+}
+
+main .home li {
+    list-style: none;
+}
+
+main .home p {
+    margin-block-end: 3em;
+}
+
+main .home .chart-dashboard {
+    width: 70%;
+    max-height: 50vh;
+    margin: auto;
+}
+
+.home .chart-dashboard canvas {
+    margin-block: 2rem;
+}
