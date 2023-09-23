@@ -50,7 +50,7 @@ export function ToyFilter({ onSetFilterBy, filterBy }) {
                     <input name="txt" type="text" placeholder="Search via text.." />
                 </label>
 
-                <FormControl sx={{ m: 1, minWidth: 130 }} size="small">
+                <FormControl sx={{ m: 1, minWidth: 165 }} size="small">
                     <InputLabel id="demo-select-small-label">Filter by stock 📦</InputLabel>
                     <Select
                         labelId="demo-select-small-label"
