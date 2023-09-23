@@ -1,4 +1,11 @@
+import { GoogleMap } from "./GoogleMap"
 export function About() {
 
-    return (<h1>About</h1>)
+    return (
+        <section className="about">
+            <h1>About</h1>
+            <GoogleMap />
+
+        </section>
+    )
 }
