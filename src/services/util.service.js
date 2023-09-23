@@ -5,7 +5,8 @@ export const utilService = {
     loadFromStorage,
     saveToStorage,
     animateCSS,
-    debounce
+    debounce,
+    generateRandomPastelColor
 }
 
 function makeId(length = 6) {
@@ -51,6 +52,17 @@ function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
 }
+
+function generateRandomPastelColor() {
+    const r = Math.floor(Math.random() * 200) + 55
+    const g = Math.floor(Math.random() * 200) + 55
+    const b = Math.floor(Math.random() * 200) + 55
+    const a = 0.2;
+
+    return `rgba(${r}, ${g}, ${b}, ${a})`;
+}
+
+console.log(generateRandomPastelColor())
 
 // In our utilService
 function animateCSS(el, animation) {
