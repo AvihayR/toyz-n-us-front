@@ -62,8 +62,6 @@ function generateRandomPastelColor() {
     return `rgba(${r}, ${g}, ${b}, ${a})`;
 }
 
-console.log(generateRandomPastelColor())
-
 // In our utilService
 function animateCSS(el, animation) {
     const prefix = 'animate__'

@@ -1,6 +1,7 @@
 // import img from '../assets/img/react2.svg'
 // import { utilService } from '../services/util.service';
 import { StockPieChart } from '../cmps/StockPieChart';
+import { PriceChart } from '../cmps/PriceChart';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { loadToys } from '../store/actions/toy.action';
@@ -51,6 +52,7 @@ export function HomePage() {
             </p>
 
             <section className="chart-dashboard">
+                <PriceChart toys={toys} />
                 <StockPieChart toys={toys} />
 
             </section>
