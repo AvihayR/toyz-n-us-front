@@ -1,0 +1,15 @@
+/* MOBILE ONLY */
+@media (max-width: 660px) {
+    main .toy-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* SMALL */
+@media (min-width: 660px) {}
+
+/* MEDIUM */
+@media (min-width: 800px) {}
+
+/* LARGE */
+@media (min-width: 1200px) {}

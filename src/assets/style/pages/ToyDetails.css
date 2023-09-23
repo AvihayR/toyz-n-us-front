@@ -1,0 +1,49 @@
+main .toy-details {}
+
+main .toy-details .name {
+    color: var(--toy-red);
+}
+
+main .toy-details .price {
+    color: var(--toy-cyan);
+}
+
+main .toy-details .stock {
+    color: var(--toy-blue);
+}
+
+main .toy-details .out-of-stock {
+    color: var(--toy-red);
+}
+
+main .toy-details .editable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.toy-details .editable svg {
+    color: grey;
+}
+
+main .toy-details>* {
+    margin-block-end: 1em;
+}
+
+main .toy-details .toy-id {
+    margin-bottom: 3rem;
+}
+
+main .toy-details .back {
+    padding: 0.5em;
+    border: 1px solid var(--toy-red);
+    border-radius: 0.5em;
+    color: var(--toy-red);
+    transition: background-color 0.3s, color 0.4s;
+}
+
+main .toy-details .back:hover {
+    color: whitesmoke;
+    background-color: var(--toy-red);
+}

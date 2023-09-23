@@ -49,15 +49,23 @@ export function AddToyDialog({ onAddToy }) {
     }
 
     return (
-        <div>
+        <div className='add-toy-container'>
             <AddBtn handleClickOpen={handleClickOpen} />
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Add a new toy 🧸</DialogTitle>
+                <DialogTitle
+                    sx={{
+                        color: 'var(--toy-red)',
+                    }}>
+                    Add a new toy 🧸
+                </DialogTitle>
+
                 <DialogContent>
                     <DialogContentText>
                         Please enter the required fields and information about your new toy.
                     </DialogContentText>
                     <TextField
+                        InputLabelProps={{ style: { color: 'var(--toy-red)' } }}
+                        // inputProps={{ style: { color: 'var(--toy-blue)' } }}
                         autoFocus
                         margin="dense"
                         id="name"
@@ -70,6 +78,8 @@ export function AddToyDialog({ onAddToy }) {
                         required
                     />
                     <TextField
+                        InputLabelProps={{ style: { color: 'var(--toy-red)' } }}
+                        // inputProps={{ style: { color: 'var(--toy-blue)' } }}
                         margin="dense"
                         id="price"
                         name="price"
@@ -83,6 +93,12 @@ export function AddToyDialog({ onAddToy }) {
 
                     <FormControlLabel control={
                         <Checkbox
+                            sx={{
+                                color: 'var(--toy-cyan)',
+                                '&.Mui-checked': {
+                                    color: 'var(--toy-cyan)',
+                                },
+                            }}
                             checked={toyToBuild.inStock}
                             onChange={handleChange}
                             name='inStock'

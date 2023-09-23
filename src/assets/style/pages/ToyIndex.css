@@ -1,0 +1,19 @@
+.add-toy-container .add-btn {
+    background-color: var(--toy-blue);
+    color: var(--toy-cyan);
+    border-radius: 5em;
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+    transition: background-color 0.4s;
+}
+
+.add-toy-container .add-btn svg {
+    width: 100%;
+    height: auto;
+}
+
+.add-btn:hover {
+    color: var(--toy-blue);
+    background-color: var(--toy-red);
+}

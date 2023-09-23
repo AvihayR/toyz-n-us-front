@@ -47,7 +47,7 @@ export function ToyFilter({ onSetFilterBy, filterBy }) {
         <>
             <form className="toy-filter" onChange={handleChange} onSubmit={ev => ev.preventDefault()}>
                 <label>
-                    <input name="txt" type="text" placeholder="Search via text.." />
+                    <input className="search-bar" name="txt" type="text" placeholder="Search via text.." />
                 </label>
 
                 <FormControl sx={{ m: 1, minWidth: 165 }} size="small">

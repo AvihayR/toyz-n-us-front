@@ -1,7 +1,42 @@
 .toy-list .toy-preview {
-    background-color: gainsboro;
-    width: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    justify-self: center;
+    background-color: whitesmoke;
+    color: var(--toy-black);
+    width: 90%;
+    height: 12em;
     text-align: center;
     border-radius: 1em;
+    border: 2px solid var(--toy-light-grey);
     cursor: pointer;
+}
+
+.toy-list .toy-preview .toy-name {
+    font-size: 1.2rem;
+    color: var(--toy-blue);
+}
+
+.toy-list .toy-preview .stock {
+    color: var(--toy-blue);
+    font-size: 1em;
+}
+
+.toy-list .toy-preview .remove-btn {
+    font-size: 1.2rem;
+    padding: 0.3em;
+    color: var(--toy-white);
+    background-color: var(--toy-red);
+    transition: background-color 0.4s, color 0.5s;
+}
+
+.toy-list .toy-preview .remove-btn:hover {
+    background-color: var(--toy-white);
+    color: var(--toy-red);
+}
+
+.toy-list .toy-preview .stock.out-of-stock {
+    color: var(--toy-red);
 }

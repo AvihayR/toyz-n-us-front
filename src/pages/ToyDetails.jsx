@@ -6,6 +6,8 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { EDIT_TOY } from "../store/reducers/toy.reducer"
 import { editToy } from "../store/actions/toy.action"
 import _ from "lodash"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPencil } from "@fortawesome/free-solid-svg-icons"
 
 export function ToyDetails() {
     const [toy, setToy] = useState(null)
@@ -54,28 +56,31 @@ export function ToyDetails() {
     const { name, price, inStock, createdAt, labels, _id, } = toy
     return (
         <form className="toy-details">
-            <h2 contentEditable
-                suppressContentEditableWarning={true}
-                onBlur={onBlurEdit}
-                data-name="name"
-                className="name">
-                {name}
-            </h2>
-
-            <h3>$ <span contentEditable
-                suppressContentEditableWarning={true}
-                onBlur={onBlurEdit}
-                data-name='price'
-                className="price">{price}
+            <span className="editable">
+                <h2 contentEditable
+                    suppressContentEditableWarning={true}
+                    onBlur={onBlurEdit}
+                    data-name="name"
+                    className="name">
+                    {name}
+                </h2>
+                <FontAwesomeIcon icon={faPencil} />
             </span>
-            </h3>
+            <span className="editable">
+                <h3 className="price">$ <span contentEditable
+                    suppressContentEditableWarning={true}
+                    onBlur={onBlurEdit}
+                    data-name='price'>{price}
+                </span>
+                </h3>
+                <FontAwesomeIcon icon={faPencil} />
+            </span>
 
-            <h3>{inStock ? 'In stock!' : 'Currently not in stock.'}</h3>
-            <h4>Created at: {new Date(createdAt).toUTCString()}</h4>
-            <h4>Labels: {labels.join(', ')}</h4>
-            <h5>Toy id: {_id}</h5>
-            <Link to="/toy">Back</Link>
+            <h3 className={inStock ? 'stock' : 'out-of-stock'}>{inStock ? 'In stock!' : 'Currently not in stock.'}</h3>
+            <h4 className="created-at">Created at: {new Date(createdAt).toUTCString()}</h4>
+            <h4 className="labels">Labels: {labels.join(', ')}</h4>
+            <h5 className="toy-id">Toy id: {_id}</h5>
+            <Link className="back" to="/toy">Back</Link>
         </form>
     )
 }
-
