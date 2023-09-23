@@ -42,15 +42,16 @@ export function PriceChart({ toys }) {
     const labelObjMap = getLabelsObjMap(toys)
 
     const options = {
+        maintainAspectRatio: false,
         responsive: true,
         plugins: {
             legend: {
-                // position: 'top' as const,
+                position: 'top',
             },
             title: {
                 display: true,
                 text: 'Average toy price by label',
-            },
+            }
         },
     };
 
@@ -60,7 +61,10 @@ export function PriceChart({ toys }) {
         labels,
         datasets: [
             {
-                label: 'Price',
+                barPercentage: 0.5,
+                maxBarThickness: 45,
+                minBarLength: 8,
+                label: 'Average Price',
                 data: Object.values(labelObjMap),
                 backgroundColor: '#91D6F7',
             },

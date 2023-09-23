@@ -1,20 +1,10 @@
 :root {
-  --toy-red: #FF1053;
+  --toy-red: #e50a48;
   --toy-blue: #0d4887;
   --toy-cyan: #7FCDF1;
   --toy-black: #131110;
   --toy-white: #F1F1F1;
   --toy-light-grey: #d7d7d7d4;
-
-  --buzz-purple: #613B6F;
-  --buzz-green: #8DAC50;
-  --buzz-dirt: #F5C290;
-  --buzz-white: #FBFBFB;
-  --buzz-grey: gainsboro;
-  --buzz-red: #DB382D;
-
-  --clr1: #0a9396;
-  --clr2: #ae2012;
 
   --clr1bg: #94d2bd;
   --clr1bg-light: #c1f1e1;

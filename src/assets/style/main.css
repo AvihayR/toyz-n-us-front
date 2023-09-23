@@ -9,6 +9,7 @@
 @import 'base/forms.css';
 
 /* Components */
+@import 'pages/HomePage.css';
 @import 'cmps/AppHeader.css';
 @import 'cmps/UserMsg.css';
 

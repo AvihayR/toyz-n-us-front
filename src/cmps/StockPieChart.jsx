@@ -14,7 +14,18 @@ export function StockPieChart({ toys }) {
     }
 
     const labelObjMap = getLabelsObjMap(toys)
-
+    const options = {
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Amount of toys in stock by labels',
+            }
+        },
+    }
     const data = {
         labels: Object.keys(labelObjMap),
         datasets: [
@@ -46,8 +57,7 @@ export function StockPieChart({ toys }) {
 
     return (
         <>
-            <h2>Toys in stock by labels</h2>
-            <Doughnut data={data} />
+            <Doughnut options={options} data={data} />
         </>
     )
 }
