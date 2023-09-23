@@ -8,6 +8,10 @@
     transition: background-color 0.4s;
 }
 
+.add-toy-container .add-btn svg {
+    width: 100%;
+    height: auto;
+}
 
 .add-btn:hover {
     color: var(--toy-blue);
