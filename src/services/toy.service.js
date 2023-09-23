@@ -7,7 +7,7 @@ const BASE_URL = 'toy/'
 const STORAGE_KEY = 'toyDB'
 
 const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle',
-    'Outdoor', 'Battery Powered']
+    'Outdoor', 'Battery Powered', 'Action figure', 'Board games']
 
 export const toyService = {
     query,
@@ -15,6 +15,7 @@ export const toyService = {
     save,
     remove,
     getEmptyToy,
+    getLabels
 }
 
 // _createToys()
@@ -58,12 +59,15 @@ function getEmptyToy() {
     return {
         name: '',
         price: 100,
-        labels: [],
+        labels: ['Baby'],
         createdAt: Date.now(),
         inStock: true
     }
 }
 
+function getLabels() {
+    return labels
+}
 
 function _createToys() {
     let toys = utilService.loadFromStorage(STORAGE_KEY)
