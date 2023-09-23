@@ -6,8 +6,8 @@ html {}
 
 body {
   margin: 0;
-  color: var(--gray3);
   min-height: 100vh;
+  background-color: var(--toy-white);
 }
 
 h1,
@@ -15,9 +15,18 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+ul,
+li,
+p,
+a {
   margin: 0;
-  font-family: 'Shadows Into Light', cursive;
+  font-family: 'Noto Sans Hebrew', sans-serif;
+}
+
+.logo,
+.toyz-n-us-font {
+  font-family: 'Titan One', cursive;
 }
 
 p {
