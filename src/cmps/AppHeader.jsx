@@ -8,6 +8,7 @@ export const AppHeader = () => {
             <div className="links">
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/toy">Toys</NavLink>
+                <NavLink to="/about">About</NavLink>
             </div>
         </>
     </header>
