@@ -3,14 +3,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--buzz-grey);
-  color: var(--buzz-purple);
+  /* background-color: var(--toy-light-grey); */
+  background-color: var(--toy-blue);
+  color: var(--toy-red);
   padding: .5em 1em;
   margin-block-end: 1.5rem;
 }
 
 .app-header h1 span {
-  color: var(--buzz-green);
+  color: var(--toy-cyan);
 }
 
 .app-header .links {
@@ -20,7 +21,7 @@
 
 .app-header .links a.active {
   font-weight: 700;
-  color: var(--buzz-green);
+  color: var(--toy-cyan);
 }
 
 @media(max-width: 720px) {
