@@ -33,7 +33,7 @@ export function GoogleMap() {
             <button onClick={() => { goToStore(35.18981167874425, 25.718217726175347) }}>
                 Crete - Greece
             </button>
-            <div style={{ height: '100vh', width: '100%' }}>
+            <div className='map' style={{ height: '60vh', width: '60%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: apiKey }}
                     defaultCenter={defaultProps.center}
