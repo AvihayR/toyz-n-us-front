@@ -1,14 +1,18 @@
 button {
     cursor: pointer;
-    background-color: var(--clr2bg);
+    background-color: var(--toy-cyan);
+    color: var(--toy-red);
+    font-weight: 700;
     margin: 0.5em;
     border: 0;
     padding: 0.5em 0.8em;
     border-radius: 4px;
+    transition: .3s;
 }
 
 button:hover {
-    transition: .3s;
+    background-color: var(--toy-red);
+    color: var(--toy-cyan);
 }
 
 input:focus {

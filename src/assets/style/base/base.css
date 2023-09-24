@@ -24,9 +24,9 @@ a {
   font-family: 'Noto Sans Hebrew', sans-serif;
 }
 
-.logo,
-.toyz-n-us-font {
+.logo {
   font-family: 'Titan One', cursive;
+  text-shadow: 1px 2px black;
 }
 
 p {

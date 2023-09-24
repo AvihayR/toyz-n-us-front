@@ -1,0 +1,29 @@
+.about {
+    width: 55vw;
+}
+
+.about .logo {
+    font-size: 1.5rem;
+    color: var(--toy-cyan);
+    margin-block-end: 1em;
+}
+
+.about .logo span {
+    color: var(--toy-red);
+}
+
+.about p:last-child {
+    margin-bottom: 15rem;
+}
+
+.about .map {
+    margin: auto;
+}
+
+.about .map .logo {
+    font-size: 0.9rem;
+    width: 125px;
+    color: var(--toy-red);
+    text-align: start;
+    text-shadow: 2px 2px var(--toy-cyan);
+}

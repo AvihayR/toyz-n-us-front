@@ -3,6 +3,10 @@
     main .toy-list {
         grid-template-columns: 1fr;
     }
+
+    .about {
+        width: 90vw;
+    }
 }
 
 /* SMALL */
