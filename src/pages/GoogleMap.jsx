@@ -28,12 +28,12 @@ export function GoogleMap() {
         // Important! Always set the container height explicitly
         <>
             <button onClick={() => { goToStore(32.08824718561407, 34.773570683968735) }}>
-                TLV - Israel
+                📍 TLV - Israel
             </button>
             <button onClick={() => { goToStore(35.18981167874425, 25.718217726175347) }}>
-                Crete - Greece
+                📍 Crete - Greece
             </button>
-            <div className='map' style={{ height: '60vh', width: '60%' }}>
+            <div className='map' style={{ height: '60vh', width: '100%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: apiKey }}
                     defaultCenter={defaultProps.center}
