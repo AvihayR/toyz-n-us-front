@@ -37,13 +37,13 @@ export function removeToy(toyId) {
 
 export function saveToy(toy) {
     return toyService.save(toy)
+        .catch(err => { throw err })
 }
 
 export function editToy(toy) {
     return saveToy(toy)
         .then(store.dispatch({ type: EDIT_TOY, toy }))
         .catch(err => { throw err })
-    // return store.dispatch({ type: EDIT_TOY, toy })
 }
 
 export function setFilterBy(filterBy) {

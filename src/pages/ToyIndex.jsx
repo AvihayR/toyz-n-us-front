@@ -26,6 +26,8 @@ export function ToyIndex() {
 
     function onAddToy(toy) {
         addToy(toy)
+            .then(showSuccessMsg(`Added new toy - ${toy.name}.`))
+            .catch(err => showErrorMsg(err))
     }
 
     return (

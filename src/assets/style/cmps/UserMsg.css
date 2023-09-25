@@ -1,5 +1,6 @@
 .user-msg {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2rem;
     background-color: lightgray;
     padding: .2em .5em;
     position: fixed;
@@ -10,11 +11,11 @@
 }
 
 .user-msg.success {
-    background-color: rgba(3, 114, 18, 0.861);
+    background-color: #037212dc;
 }
 
 .user-msg.error {
-    background-color: var(--clr2);
+    background-color: #ff000098;
 }
 
 .user-msg button {
