@@ -1,3 +1,9 @@
+.pagination-nav {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
 .page-bar {
     list-style: none;
     display: flex;
@@ -10,10 +16,10 @@
 
 .page-bar .page-idx {
     background-color: lightgray;
-    color: var(--toy-blue);
+    color: grey;
     padding: 0 0.5em;
     cursor: pointer;
-    border-inline: 1px solid black;
+    border-inline-start: 1px solid #383838;
     transition: background-color 0.3s;
 }
 
@@ -24,9 +30,11 @@
 
 .page-bar .page-idx:last-child {
     border-radius: 0 5px 5px 0;
-    border: 0;
 }
 
-.page-bar .page-idx:hover {
+.page-bar .page-idx:hover,
+.page-bar .page-idx.selected {
     background-color: var(--toy-white);
+    color: var(--toy-blue);
+    font-weight: 700;
 }

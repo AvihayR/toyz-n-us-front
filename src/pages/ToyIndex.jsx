@@ -44,7 +44,7 @@ export function ToyIndex() {
             <AddToyDialog onAddToy={onAddToy} />
             <ToyFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
             <ToyList toys={currToys} onRemoveToy={onRemoveToy} />
-            <PaginationBar toysPerPage={toysPerPage} toysLength={toys.length} onSetPage={setCurrPage} />
+            <PaginationBar toysPerPage={toysPerPage} toysLength={toys.length} onSetPage={setCurrPage} currPage={currPage} />
         </>
     )
 }
