@@ -1,0 +1,32 @@
+.page-bar {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    width: fit-content;
+    border-radius: 6px;
+    border: 0.5px solid var(--toy-black);
+}
+
+.page-bar .page-idx {
+    background-color: lightgray;
+    color: var(--toy-blue);
+    padding: 0 0.5em;
+    cursor: pointer;
+    border-inline: 1px solid black;
+    transition: background-color 0.3s;
+}
+
+.page-bar .page-idx:first-child {
+    border-radius: 5px 0 0 5px;
+    border: 0;
+}
+
+.page-bar .page-idx:last-child {
+    border-radius: 0 5px 5px 0;
+    border: 0;
+}
+
+.page-bar .page-idx:hover {
+    background-color: var(--toy-white);
+}
