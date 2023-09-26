@@ -1,8 +1,11 @@
 .main-layout {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin: 0 auto;
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
+  display: grid;
+  @include layoutGTC(minmax(auto, $break-normal));
+
+
+  main {
+    display: grid;
+    place-items: center;
+    grid-column: 2;
+  }
 }

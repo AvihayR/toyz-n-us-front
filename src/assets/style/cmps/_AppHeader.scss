@@ -21,7 +21,7 @@
   align-items: center;
   background-color: $toy-blue;
   color: $toy-red;
-  padding: .5em 1em;
+  padding: 0.5em $layoutPadding;
   margin-block-end: 1.5rem;
 
   .links {

@@ -4,11 +4,11 @@
 @import 'setup/_functions.scss';
 
 /* Base */
+@import 'base/_mixins.scss';
 @import 'base/_base.scss';
 @import 'base/_helpers.scss';
 @import 'base/_layout.scss';
 @import 'base/_forms.scss';
-@import 'base/_mixins.scss';
 
 
 /* Components */

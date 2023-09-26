@@ -1,6 +1,5 @@
 main .toy-list {
     display: grid;
-    max-width: rem(596px);
     grid-template-columns: minmax(290px, 1fr) minmax(290px, 1fr);
     gap: 1em;
     margin-block-end: 2rem;
@@ -9,4 +8,15 @@ main .toy-list {
         grid-template-columns: 1fr;
     }
 
+    @include for-narrow-layout {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include for-normal-layout {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include for-wide-layout {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
