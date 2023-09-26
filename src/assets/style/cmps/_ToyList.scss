@@ -1,5 +1,6 @@
 main .toy-list {
     display: grid;
+    max-width: rem(596px);
     grid-template-columns: minmax(290px, 1fr) minmax(290px, 1fr);
     gap: 1em;
     margin-block-end: 2rem;
