@@ -1,1 +1,53 @@
-// 
+/* Media queries Breakpoint mixins */
+
+@mixin for-mobile-layout {
+    @media (max-width: $break-narrow) {
+        @content;
+    }
+}
+
+@mixin for-narrow-layout {
+    @media (min-width: $break-narrow) {
+        @content;
+    }
+}
+
+@mixin for-normal-layout {
+    @media (min-width: $break-normal) {
+        @content;
+    }
+}
+
+@mixin for-wide-layout {
+    @media (min-width: $break-wide) {
+        @content;
+    }
+}
+
+@mixin layoutGTC($max) {
+    grid-template-columns:
+        minmax($layoutPadding, 1fr) minmax(auto, $max) minmax($layoutPadding, 1fr);
+}
+
+@mixin btn($type: regular, $bg-color: $toy-blue, $color: $toy-cyan) {
+    background-color: $bg-color;
+    color: $color;
+
+    @if $type ==add {
+        border-radius: 5em;
+        width: rem(45px);
+        height: rem(45px);
+        font-size: 1rem;
+        transition: background-color 0.4s;
+
+        svg {
+            width: 100%;
+            height: auto;
+        }
+
+        &:hover {
+            color: $toy-blue;
+            background-color: $toy-red;
+        }
+    }
+}

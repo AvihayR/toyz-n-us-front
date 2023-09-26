@@ -1,19 +1,3 @@
 .add-toy-container .add-btn {
-    background-color: $toy-blue;
-    color: $toy-cyan;
-    border-radius: 5em;
-    width: 45px;
-    height: 45px;
-    font-size: 1rem;
-    transition: background-color 0.4s;
-}
-
-.add-toy-container .add-btn svg {
-    width: 100%;
-    height: auto;
-}
-
-.add-btn:hover {
-    color: $toy-blue;
-    background-color: $toy-red;
+    @include btn($type: add);
 }

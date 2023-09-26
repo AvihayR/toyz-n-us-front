@@ -12,31 +12,31 @@
     border-radius: 1em;
     border: 2px solid var(--toy-light-grey);
     cursor: pointer;
-}
 
-.toy-list .toy-preview .toy-name {
-    font-size: 1.2rem;
-    color: $toy-blue;
-}
+    .toy-name {
+        font-size: 1.2rem;
+        color: $toy-blue;
+    }
 
-.toy-list .toy-preview .stock {
-    color: $toy-blue;
-    font-size: 1em;
-}
+    .stock {
+        color: $toy-blue;
+        font-size: 1em;
+    }
 
-.toy-list .toy-preview .remove-btn {
-    font-size: 1.2rem;
-    padding: 0.3em;
-    color: $toy-white;
-    background-color: $toy-red;
-    transition: background-color 0.4s, color 0.5s;
-}
+    .out-of-stock {
+        color: $toy-red;
+    }
 
-.toy-list .toy-preview .remove-btn:hover {
-    background-color: $toy-white;
-    color: $toy-red;
-}
+    .remove-btn {
+        font-size: 1.2rem;
+        padding: 0.3em;
+        color: $toy-white;
+        background-color: $toy-red;
+        transition: background-color 0.4s, color 0.5s;
 
-.toy-list .toy-preview .stock.out-of-stock {
-    color: $toy-red;
+        &:hover {
+            background-color: $toy-white;
+            color: $toy-red;
+        }
+    }
 }

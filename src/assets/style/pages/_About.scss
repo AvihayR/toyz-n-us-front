@@ -1,29 +1,31 @@
 .about {
     width: 55vw;
-}
 
-.about .logo {
-    font-size: 1.5rem;
-    color: $toy-cyan;
-    margin-block-end: 1em;
-}
+    .logo {
+        font-size: 1.5rem;
+        color: $toy-cyan;
+        margin-block-end: 1em;
 
-.about .logo span {
-    color: $toy-red;
-}
+        span {
+            color: $toy-red;
+        }
+    }
 
-.about p:last-child {
-    margin-bottom: 15rem;
-}
+    p {
+        &:last-child {
+            margin-bottom: 15rem;
+        }
+    }
 
-.about .map {
-    margin: auto;
-}
+    .map {
+        margin: auto;
 
-.about .map .logo {
-    font-size: 0.9rem;
-    width: 125px;
-    color: $toy-red;
-    text-align: start;
-    text-shadow: 2px 2px $toy-cyan;
+        .logo {
+            font-size: 0.9rem;
+            width: 125px;
+            color: $toy-red;
+            text-align: start;
+            text-shadow: 2px 2px $toy-cyan;
+        }
+    }
 }

@@ -8,18 +8,21 @@
     right: 1em;
     color: white;
     border-radius: 2px;
-}
 
-.user-msg.success {
-    background-color: #037212dc;
-}
+    &.success {
+        background-color: $toy-cyan;
+        color: $toy-white;
+    }
 
-.user-msg.error {
-    background-color: #ff000098;
-}
+    &.error {
+        background-color: $toy-red;
+    }
 
-.user-msg button {
-    font-size: .5em;
-    float: right;
-    margin: .5em;
+    button {
+        font-size: .5em;
+        float: right;
+        margin: .5em;
+        background-color: $toy-red;
+        color: $toy-white;
+    }
 }

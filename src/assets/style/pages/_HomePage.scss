@@ -1,31 +1,31 @@
-main .home {}
+main .home {
+    .main-header {
+        color: $toy-red;
+    }
 
-main .home .main-header {
-    color: $toy-red;
-}
+    .sub-header {
+        color: $toy-blue;
+    }
 
-main .home .sub-header {
-    color: $toy-blue;
-}
+    ul {
+        margin-block: 2em;
 
-main .home ul {
-    margin-block: 2em;
-}
+        li {
+            list-style: none;
+        }
+    }
 
-main .home li {
-    list-style: none;
-}
+    p {
+        margin-block-end: 3em;
+    }
 
-main .home p {
-    margin-block-end: 3em;
-}
+    .chart-dashboard {
+        width: 70%;
+        max-height: 50vh;
+        margin: auto;
 
-main .home .chart-dashboard {
-    width: 70%;
-    max-height: 50vh;
-    margin: auto;
-}
-
-.home .chart-dashboard canvas {
-    margin-block: 2rem;
+        canvas {
+            margin-block: 2rem;
+        }
+    }
 }

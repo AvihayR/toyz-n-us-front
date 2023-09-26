@@ -1,49 +1,51 @@
-main .toy-details {}
+main .toy-details {
 
-main .toy-details .name {
-    color: $toy-red;
-}
+    .name {
+        color: $toy-red;
+    }
 
-main .toy-details .price {
-    color: $toy-cyan;
-}
+    .price {
+        color: $toy-cyan;
+    }
 
-main .toy-details .stock {
-    color: $toy-blue;
-}
+    .stock {
+        color: $toy-blue;
+    }
 
-main .toy-details .out-of-stock {
-    color: $toy-red;
-}
+    .out-of-stock {
+        color: $toy-red;
+    }
 
-main .toy-details .editable {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
+    .editable {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
 
-.toy-details .editable svg {
-    color: grey;
-}
+        svg {
+            color: grey;
+        }
+    }
 
-main .toy-details>* {
-    margin-block-end: 1em;
-}
+    &>* {
+        margin-block-end: 1em;
+    }
 
-main .toy-details .toy-id {
-    margin-bottom: 3rem;
-}
+    .toy-id {
+        margin-bottom: 3rem;
+    }
 
-main .toy-details .back {
-    padding: 0.5em;
-    border: 1px solid $toy-red;
-    border-radius: 0.5em;
-    color: $toy-red;
-    transition: background-color 0.3s, color 0.4s;
-}
+    .back {
+        padding: 0.5em;
+        border: 1px solid $toy-red;
+        border-radius: 0.5em;
+        color: $toy-red;
+        transition: background-color 0.3s, color 0.4s;
 
-main .toy-details .back:hover {
-    color: whitesmoke;
-    background-color: $toy-red;
+        &:hover {
+            color: whitesmoke;
+            background-color: $toy-red;
+        }
+    }
+
 }
