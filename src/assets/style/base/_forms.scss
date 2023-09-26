@@ -1,19 +1,21 @@
 button {
     cursor: pointer;
     background-color: var(--toy-cyan);
-    color: var(--toy-red);
+    color: $toy-red;
     font-weight: 700;
     margin: 0.5em;
     border: 0;
     padding: 0.5em 0.8em;
     border-radius: 4px;
     transition: .3s;
+
+    &:hover {
+        background-color: $toy-red;
+        color: var(--toy-cyan);
+    }
 }
 
-button:hover {
-    background-color: var(--toy-red);
-    color: var(--toy-cyan);
-}
+
 
 input:focus {
     transition: background-color 1s;

@@ -47,7 +47,7 @@ export function AddToyDialog({ onAddToy }) {
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle
                     sx={{
-                        color: 'var(--toy-red)',
+                        color: '$toy-red',
                     }}>
                     Add a new toy 🧸
                 </DialogTitle>

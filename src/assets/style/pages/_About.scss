@@ -9,7 +9,7 @@
 }
 
 .about .logo span {
-    color: var(--toy-red);
+    color: $toy-red;
 }
 
 .about p:last-child {
@@ -23,7 +23,7 @@
 .about .map .logo {
     font-size: 0.9rem;
     width: 125px;
-    color: var(--toy-red);
+    color: $toy-red;
     text-align: start;
     text-shadow: 2px 2px var(--toy-cyan);
 }

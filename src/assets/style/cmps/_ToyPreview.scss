@@ -28,15 +28,15 @@
     font-size: 1.2rem;
     padding: 0.3em;
     color: var(--toy-white);
-    background-color: var(--toy-red);
+    background-color: $toy-red;
     transition: background-color 0.4s, color 0.5s;
 }
 
 .toy-list .toy-preview .remove-btn:hover {
-    background-color: var(--toy-white);
-    color: var(--toy-red);
+    background-color: $toy-white;
+    color: $toy-red;
 }
 
 .toy-list .toy-preview .stock.out-of-stock {
-    color: var(--toy-red);
+    color: $toy-red;
 }
