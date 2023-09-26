@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--toy-blue);
+  background-color: $toy-blue;
   color: $toy-red;
   padding: .5em 1em;
   margin-block-end: 1.5rem;
@@ -14,7 +14,7 @@
 }
 
 .app-header h1 span {
-  color: var(--toy-cyan);
+  color: $toy-cyan;
 }
 
 .app-header .links {
@@ -24,7 +24,7 @@
 }
 
 .app-header .links a.active {
-  color: var(--toy-cyan);
+  color: $toy-cyan;
   text-decoration: none;
 }
 

@@ -1,6 +1,6 @@
 button {
     cursor: pointer;
-    background-color: var(--toy-cyan);
+    background-color: $toy-cyan;
     color: $toy-red;
     font-weight: 700;
     margin: 0.5em;
@@ -11,7 +11,7 @@ button {
 
     &:hover {
         background-color: $toy-red;
-        color: var(--toy-cyan);
+        color: $toy-cyan;
     }
 }
 

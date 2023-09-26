@@ -57,8 +57,8 @@ export function AddToyDialog({ onAddToy }) {
                         Please enter the required fields and information about your new toy.
                     </DialogContentText>
                     <TextField
-                        InputLabelProps={{ style: { color: 'var(--toy-red)' } }}
-                        // inputProps={{ style: { color: 'var(--toy-blue)' } }}
+                        InputLabelProps={{ style: { color: '$toy-red' } }}
+                        // inputProps={{ style: { color: '$toy-blue' } }}
                         autoFocus
                         margin="dense"
                         id="name"
@@ -71,8 +71,8 @@ export function AddToyDialog({ onAddToy }) {
                         required
                     />
                     <TextField
-                        InputLabelProps={{ style: { color: 'var(--toy-red)' } }}
-                        // inputProps={{ style: { color: 'var(--toy-blue)' } }}
+                        InputLabelProps={{ style: { color: '$toy-red' } }}
+                        // inputProps={{ style: { color: '$toy-blue' } }}
                         margin="dense"
                         id="price"
                         name="price"
@@ -87,9 +87,9 @@ export function AddToyDialog({ onAddToy }) {
                     <FormControlLabel control={
                         <Checkbox
                             sx={{
-                                color: 'var(--toy-cyan)',
+                                color: '$toy-cyan',
                                 '&.Mui-checked': {
-                                    color: 'var(--toy-cyan)',
+                                    color: '$toy-cyan',
                                 },
                             }}
                             checked={toyToBuild.inStock}

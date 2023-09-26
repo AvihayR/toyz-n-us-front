@@ -5,11 +5,11 @@ main .toy-details .name {
 }
 
 main .toy-details .price {
-    color: var(--toy-cyan);
+    color: $toy-cyan;
 }
 
 main .toy-details .stock {
-    color: var(--toy-blue);
+    color: $toy-blue;
 }
 
 main .toy-details .out-of-stock {

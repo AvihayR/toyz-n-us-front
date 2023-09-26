@@ -1,6 +1,6 @@
 .add-toy-container .add-btn {
-    background-color: var(--toy-blue);
-    color: var(--toy-cyan);
+    background-color: $toy-blue;
+    color: $toy-cyan;
     border-radius: 5em;
     width: 45px;
     height: 45px;
@@ -14,6 +14,6 @@
 }
 
 .add-btn:hover {
-    color: var(--toy-blue);
+    color: $toy-blue;
     background-color: $toy-red;
 }
