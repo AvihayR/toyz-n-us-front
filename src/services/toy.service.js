@@ -2,9 +2,10 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import toyDemoData from './toy.demo.data.js'
 import { httpService } from './http.service.js'
+import { cond } from 'lodash'
 
 const BASE_URL = 'toy/'
-const STORAGE_KEY = 'toyDB'
+const STORAGE_KEY = 'toysDB'
 
 const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle',
     'Outdoor', 'Battery Powered', 'Action figure', 'Board games']
@@ -47,7 +48,7 @@ function remove(toyId) {
 
 function save(toy) {
     if (toy._id) {
-        return httpService.put(BASE_URL, toy)
+        return httpService.put(BASE_URL + toy._id, toy)
     } else {
         // when switching to backend - remove the next line
         return httpService.post(BASE_URL, toy)
