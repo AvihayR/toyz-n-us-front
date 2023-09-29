@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
-import { useSelector } from "react-redux"
 import { toyService } from "../services/toy.service"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
-import { EDIT_TOY } from "../store/reducers/toy.reducer"
 import { editToy } from "../store/actions/toy.action"
 import _ from "lodash"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -30,7 +28,7 @@ export function ToyDetails() {
     }
 
 
-    function onBlurEdit({ target }) {
+    async function onBlurEdit({ target }) {
         const field = target.dataset.name
         const value = target.innerText
         const editedToy = { ...toy, [field]: value }
@@ -38,17 +36,15 @@ export function ToyDetails() {
         const isEdited = !_.isEqual(editedToy, toy)
 
         if (isEdited) {
-            // saveTeam(editedToy)
-            editToy(editedToy)
-                .then(_ => {
-                    setToy(editedToy)
-                    showSuccessMsg('Toy saved successfully')
-                })
-                .catch(err => {
-                    console.log(err)
-                    target.innerText = toy[field]
-                    showErrorMsg('An error occured while saving Toy')
-                })
+            try {
+                await editToy(editedToy)
+                setToy(editedToy)
+                showSuccessMsg('Toy saved successfully')
+            } catch (err) {
+                console.log(err)
+                target.innerText = toy[field]
+                showErrorMsg('An error occured while saving Toy')
+            }
         }
     }
 
