@@ -59,7 +59,7 @@ export function ToyFilter({ onSetFilterBy, filterBy }) {
                         name="inStock"
                         onChange={handleChange}
                     >
-                        <MenuItem value="none"><em>none</em></MenuItem>
+                        <MenuItem value=""><em>none</em></MenuItem>
                         <MenuItem value={true}>In stock</MenuItem>
                         <MenuItem value={false}>Out of stock</MenuItem>
                     </Select>
@@ -75,7 +75,7 @@ export function ToyFilter({ onSetFilterBy, filterBy }) {
                         onChange={handleChange}
                     >
                         <MenuItem value="none"><em>none</em></MenuItem>
-                        <MenuItem value="alphabet">Alphabetically</MenuItem>
+                        <MenuItem value="name">Alphabetically</MenuItem>
                         <MenuItem value="price">Price</MenuItem>
                     </Select>
                     <FormControlLabel control={<Checkbox name="isDesc" />} label="Descending" />
