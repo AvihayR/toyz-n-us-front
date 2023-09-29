@@ -30,7 +30,8 @@ export function ToyDetails() {
 
     async function onBlurEdit({ target }) {
         const field = target.dataset.name
-        const value = target.innerText
+        let value = target.innerText
+        if (field === 'price') value = +value
         const editedToy = { ...toy, [field]: value }
 
         const isEdited = !_.isEqual(editedToy, toy)
