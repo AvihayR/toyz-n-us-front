@@ -4,7 +4,7 @@ import { SET_FILTER_BY, ADD_TOY, REMOVE_TOY, LOAD_TOYS_FROM_STORAGE, EDIT_TOY } 
 import { store } from "../store.js"
 
 
-export async function loadToys(filterBy = { sortBy: 'none', txt: '', inStock: 'none' }) {
+export async function loadToys(filterBy = toyService.getDefaultFilter()) {
     try {
         const toys = await toyService.query(filterBy)
         store.dispatch({ type: LOAD_TOYS_FROM_STORAGE, toys })

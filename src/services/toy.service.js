@@ -16,7 +16,8 @@ export const toyService = {
     save,
     remove,
     getEmptyToy,
-    getLabels
+    getLabels,
+    getDefaultFilter,
 }
 
 // _createToys()
@@ -67,6 +68,10 @@ function getEmptyToy() {
 
 function getLabels() {
     return labels
+}
+
+function getDefaultFilter() {
+    return { sortBy: '', txt: '', inStock: '' }
 }
 
 function _createToys() {
