@@ -26,8 +26,8 @@ export function ToyIndex() {
         try {
             await removeToy(toyId)
             showSuccessMsg(`Removed toy -${toyId}`)
-        } catch {
-            showErrorMsg(err)
+        } catch (err) {
+            showErrorMsg('Could\'t remove toy..')
         }
     }
 
@@ -36,7 +36,7 @@ export function ToyIndex() {
             await addToy(toy)
             showSuccessMsg(`Added new toy - ${toy.name}.`)
         } catch (err) {
-            showErrorMsg(err)
+            showErrorMsg('Could\'nt add toy.. ')
         }
     }
 
