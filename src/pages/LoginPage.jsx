@@ -1,5 +1,9 @@
+import { LoginSignup } from "../cmps/LoginSignup";
+
 export function LoginPage() {
 
 
-    return (<h1>Login page :3</h1>)
+    return (
+        <LoginSignup />
+    )
 }

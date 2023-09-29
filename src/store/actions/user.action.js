@@ -33,7 +33,6 @@ export function logIn(credentials) {
             setLoggedUser(user)
         })
         .catch(err => {
-            console.log('Oops, try again')
             throw err
         })
 }

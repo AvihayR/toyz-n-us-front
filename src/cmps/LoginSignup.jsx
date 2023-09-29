@@ -1,8 +1,7 @@
+import { useSelector } from "react-redux"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { logIn, logOut, signUp } from '../store/actions/user.action.js'
-
-const { useSelector } = ReactRedux
-const { useState } = React
+import { useState } from "react"
 
 function getEmptyCredentials() {
     return {
@@ -20,7 +19,7 @@ export function LoginSignup() {
     function onLogout() {
         logOut()
             .then(res => showSuccessMsg('Logged out!'))
-            .catch(err => showErrorMsg(err))
+            .catch(err => showErrorMsg(`${err}`))
     }
 
     function handleCredentialsChange(ev) {
@@ -29,20 +28,29 @@ export function LoginSignup() {
         setCredentials(credentials => ({ ...credentials, [field]: value }))
     }
 
-    function onSubmit(ev) {
+    async function onSubmit(ev) {
         ev.preventDefault()
         if (isSignupState) {
-            return signUp(credentials)
-                .then(showSuccessMsg('Signed up successfully!'))
-                .catch(err => console.log(err))
+            try {
+                await signUp(credentials)
+                showSuccessMsg('Signed up successfully!')
+            } catch (err) {
+                showErrorMsg(`${err.response.data.err}`)
+            }
+
         } else {
-            logIn(credentials)
-                .then(res => showSuccessMsg(`Logged in successfully!`))
-                .catch(err => showErrorMsg(`Error: ${err}`))
+            try {
+                await logIn(credentials)
+                showSuccessMsg(`Logged in successfully!`)
+
+            } catch (err) {
+                showErrorMsg(`${err}`)
+            }
         }
     }
 
-    function onToggleSignupState() {
+    function onToggleSignupState(ev) {
+        ev.preventDefault()
         setIsSignupState(isSignupState => !isSignupState)
     }
 
@@ -56,7 +64,7 @@ export function LoginSignup() {
             </section>
             :
             <div className="login-page">
-                <h2 className="login-signup-reminder">Login / Sign up to save Private todos!</h2>
+                <h2 className="login-signup-reminder">Login-N-Us</h2>
                 <form className="login-form" onSubmit={onSubmit}>
                     <input
                         type="text"
