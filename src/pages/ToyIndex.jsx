@@ -22,16 +22,22 @@ export function ToyIndex() {
             .catch(err => showErrorMsg(err))
     }, [filterBy])
 
-    function onRemoveToy(toyId) {
-        removeToy(toyId)
-            .then(showSuccessMsg(`Removed toy -${toyId}`))
-            .catch(err => showErrorMsg(err))
+    async function onRemoveToy(toyId) {
+        try {
+            await removeToy(toyId)
+            showSuccessMsg(`Removed toy -${toyId}`)
+        } catch {
+            showErrorMsg(err)
+        }
     }
 
-    function onAddToy(toy) {
-        addToy(toy)
-            .then(showSuccessMsg(`Added new toy - ${toy.name}.`))
-            .catch(err => showErrorMsg(err))
+    async function onAddToy(toy) {
+        try {
+            await addToy(toy)
+            showSuccessMsg(`Added new toy - ${toy.name}.`)
+        } catch (err) {
+            showErrorMsg(err)
+        }
     }
 
     //Get current toys / Pagination:
