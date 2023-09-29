@@ -4,46 +4,54 @@ import { SET_FILTER_BY, ADD_TOY, REMOVE_TOY, LOAD_TOYS_FROM_STORAGE, EDIT_TOY } 
 import { store } from "../store.js"
 
 
-export function loadToys(filterBy = toyService.query()) {
-    return toyService.query(filterBy)
-        .then((toys) => {
-            store.dispatch({ type: LOAD_TOYS_FROM_STORAGE, toys })
-        })
-        .catch(err => {
-            console.log('Error:', err)
-            throw err
-        })
+export async function loadToys(filterBy = toyService.query()) {
+    try {
+        const toys = await toyService.query(filterBy)
+        store.dispatch({ type: LOAD_TOYS_FROM_STORAGE, toys })
+    } catch (err) {
+        console.log('Error:', err)
+        throw err
+    }
 }
 
-export function addToy(toy) {
-    return toyService.save(toy)
-        .then((res) => { store.dispatch({ type: ADD_TOY, toy: res }) })
-        .catch(err => {
-            console.log('Error:', err)
-            throw err
-        })
+export async function addToy(toy) {
+    try {
+        const res = await toyService.save(toy)
+        store.dispatch({ type: ADD_TOY, toy: res })
+
+    } catch (err) {
+        console.log('Error:', err)
+        throw err
+    }
 }
 
-export function removeToy(toyId) {
-    return toyService.remove(toyId)
-        .then(
-            store.dispatch({ type: REMOVE_TOY, _id: toyId })
-        )
-        .catch(err => {
-            console.log('Error:', err)
-            throw err
-        })
+export async function removeToy(toyId) {
+    try {
+        await toyService.remove(toyId)
+        store.dispatch({ type: REMOVE_TOY, _id: toyId })
+    } catch (err) {
+        console.log('Error:', err)
+        throw err
+    } finally {
+        console.log('Finally!')
+    }
 }
 
-export function saveToy(toy) {
-    return toyService.save(toy)
-        .catch(err => { throw err })
+export async function saveToy(toy) {
+    try {
+        return await toyService.save(toy)
+    } catch (err) {
+        throw err
+    }
 }
 
-export function editToy(toy) {
-    return saveToy(toy)
-        .then(store.dispatch({ type: EDIT_TOY, toy }))
-        .catch(err => { throw err })
+export async function editToy(toy) {
+    try {
+        await saveToy(toy)
+        return store.dispatch({ type: EDIT_TOY, toy })
+    } catch (err) {
+        throw err
+    }
 }
 
 export function setFilterBy(filterBy) {

@@ -5,7 +5,6 @@ import { UserMsg } from './cmps/UserMsg.jsx'
 import { AppHeader } from './cmps/AppHeader.jsx'
 import { ToyIndex } from './pages/ToyIndex.jsx'
 import { ToyDetails } from './pages/ToyDetails.jsx'
-import { ToyEdit } from './pages/ToyEdit.jsx'
 import { HomePage } from './pages/HomePage.jsx'
 import { About } from './pages/About.jsx'
 
@@ -17,7 +16,6 @@ export function App() {
         <section className="main-layout app">
           <main>
             <Routes>
-              <Route path="/toy/:toyId/edit" element={<ToyEdit />} />
               <Route path="/toy/:toyId" element={<ToyDetails />} />
               <Route path="/toy" element={<ToyIndex />} />
               <Route path="/about" element={<About />} />
