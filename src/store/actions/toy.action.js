@@ -25,6 +25,14 @@ export async function addToy(toy) {
     }
 }
 
+export async function addNewMsg(toyId, msg) {
+    try {
+        return await toyService.addNewMsg(toyId, msg)
+    } catch (err) {
+        throw err
+    }
+}
+
 export async function removeToy(toyId) {
     try {
         await toyService.remove(toyId)

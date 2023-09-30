@@ -18,6 +18,7 @@ export const toyService = {
     getEmptyToy,
     getLabels,
     getDefaultFilter,
+    addNewMsg
 }
 
 // _createToys()
@@ -54,6 +55,11 @@ function save(toy) {
         return httpService.post(BASE_URL, toy)
         // todo.owner = userService.getLoggedinUser()
     }
+}
+
+function addNewMsg(toyId, msg) {
+    console.log(BASE_URL)
+    return httpService.post(BASE_URL + toyId + '/msg', msg)
 }
 
 function getEmptyToy() {

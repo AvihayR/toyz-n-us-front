@@ -1,12 +1,14 @@
+import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { toyService } from "../services/toy.service"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
-import { editToy } from "../store/actions/toy.action"
-import _ from "lodash"
+import { editToy, addNewMsg } from "../store/actions/toy.action"
+import { MsgsList } from "../cmps/MsgsList"
+import { AddMsg } from "../cmps/AddMsg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPencil } from "@fortawesome/free-solid-svg-icons"
-import { useSelector } from "react-redux"
+import _ from "lodash"
 
 export function ToyDetails() {
     const loggedUser = useSelector(storeState => storeState.userModule.user)
@@ -30,6 +32,16 @@ export function ToyDetails() {
         }
     }
 
+
+    async function onAddNewMsg(toyId, msg) {
+        try {
+            await addNewMsg(toyId, msg)
+            showSuccessMsg(`Added new message!`)
+            loadToy()
+        } catch (err) {
+            showErrorMsg('Could\'nt add message at this time..')
+        }
+    }
 
     async function onBlurEdit({ target }) {
         const field = target.dataset.name
@@ -56,33 +68,40 @@ export function ToyDetails() {
     if (!toy) return <div>Loading...</div>
     const { name, price, inStock, createdAt, labels, _id, } = toy
     return (
-        <form className="toy-details">
-            <span className="editable">
-                <h2 contentEditable={isAdmin}
-                    suppressContentEditableWarning={true}
-                    onBlur={onBlurEdit}
-                    data-name="name"
-                    className="name">
-                    {name}
-                </h2>
-                {isAdmin && <FontAwesomeIcon icon={faPencil} />}
-            </span>
-            <span className="editable">
-                <h3 className="price">$
-                    <span contentEditable={isAdmin}
+        <>
+            <form className="toy-details">
+                <span className="editable">
+                    <h2 contentEditable={isAdmin}
                         suppressContentEditableWarning={true}
                         onBlur={onBlurEdit}
-                        data-name='price'>{price}
-                    </span>
-                </h3>
-                {isAdmin && <FontAwesomeIcon icon={faPencil} />}
-            </span>
+                        data-name="name"
+                        className="name">
+                        {name}
+                    </h2>
+                    {isAdmin && <FontAwesomeIcon icon={faPencil} />}
+                </span>
+                <span className="editable">
+                    <h3 className="price">$
+                        <span contentEditable={isAdmin}
+                            suppressContentEditableWarning={true}
+                            onBlur={onBlurEdit}
+                            data-name='price'>{price}
+                        </span>
+                    </h3>
+                    {isAdmin && <FontAwesomeIcon icon={faPencil} />}
+                </span>
 
-            <h3 className={inStock ? 'stock' : 'out-of-stock'}>{inStock ? 'In stock!' : 'Currently not in stock.'}</h3>
-            <h4 className="created-at">Created at: {new Date(createdAt).toUTCString()}</h4>
-            <h4 className="labels">Labels: {labels.join(', ')}</h4>
-            <h5 className="toy-id">Toy id: {_id}</h5>
-            <Link className="back" to="/toy">Back</Link>
-        </form>
+                <h3 className={inStock ? 'stock' : 'out-of-stock'}>{inStock ? 'In stock!' : 'Currently not in stock.'}</h3>
+                <h4 className="created-at">Created at: {new Date(createdAt).toUTCString()}</h4>
+                <h4 className="labels">Labels: {labels.join(', ')}</h4>
+                <h5 className="toy-id">Toy id: {_id}</h5>
+                <Link className="back" to="/toy">Back</Link>
+            </form>
+
+            <section className="messages">
+                {loggedUser && <AddMsg toyId={toyId} loggedUser={loggedUser} onAddNewMsg={onAddNewMsg} />}
+                {toy.msgs && <MsgsList msgs={toy.msgs} />}
+            </section>
+        </>
     )
 }

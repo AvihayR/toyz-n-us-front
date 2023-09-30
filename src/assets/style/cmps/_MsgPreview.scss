@@ -1,0 +1,19 @@
+.messages {
+    width: 25%;
+
+    .msg-preview {
+        padding: 15px;
+        border: 2px solid $toy-light-grey;
+        border-radius: 1em;
+        margin-block-end: 0.5em;
+        background-color: lighten($toy-light-grey, 8%);
+
+        .txt {
+            color: $toy-red;
+        }
+
+        .by {
+            color: $toy-blue;
+        }
+    }
+}

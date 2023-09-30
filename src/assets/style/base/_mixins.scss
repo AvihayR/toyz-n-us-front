@@ -33,9 +33,9 @@
     color: $color;
 
     @if $type ==add {
-        border-radius: 5em;
-        width: rem(45px);
         height: rem(45px);
+        width: rem(45px);
+        border-radius: 5em;
         font-size: 1rem;
         transition: background-color 0.4s;
 
@@ -47,6 +47,17 @@
         &:hover {
             color: $toy-blue;
             background-color: $toy-red;
+        }
+    }
+
+    @if $type ==transparent {
+        background-color: transparent;
+        color: $color;
+        border: 1px solid $color;
+
+        &:hover {
+            background-color: $color;
+            color: $bg-color;
         }
     }
 }
