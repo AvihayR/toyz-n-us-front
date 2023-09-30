@@ -9,7 +9,8 @@ import { faPencil } from "@fortawesome/free-solid-svg-icons"
 import { useSelector } from "react-redux"
 
 export function ToyDetails() {
-    const isAdmin = useSelector(storeState => storeState.userModule.user.isAdmin)
+    const loggedUser = useSelector(storeState => storeState.userModule.user)
+    const isAdmin = !loggedUser ? false : loggedUser.isAdmin
     const [toy, setToy] = useState(null)
     const { toyId } = useParams()
     const navigate = useNavigate()

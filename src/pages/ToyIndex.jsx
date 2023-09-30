@@ -9,7 +9,8 @@ import { PaginationBar } from '../cmps/PaginationBar.jsx';
 import { addToy, removeToy, setFilterBy } from '../store/actions/toy.action.js';
 
 export function ToyIndex() {
-    const isAdmin = useSelector(storeState => storeState.userModule.user.isAdmin)
+    const loggedUser = useSelector(storeState => storeState.userModule.user)
+    const isAdmin = !loggedUser ? false : loggedUser.isAdmin
     const toys = useSelector(storeState => storeState.toyModule.toys)
     const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
 
@@ -46,9 +47,9 @@ export function ToyIndex() {
 
     return (
         <>
-            {isAdmin && <AddToyDialog onAddToy={onAddToy} />}
+            {loggedUser && isAdmin && <AddToyDialog onAddToy={onAddToy} />}
             <ToyFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
-            <ToyList toys={currToys} onRemoveToy={onRemoveToy} />
+            <ToyList toys={currToys} onRemoveToy={onRemoveToy} isAdmin={isAdmin} />
             <PaginationBar toysPerPage={toysPerPage} toysLength={toys.length} onSetPage={setCurrPage} currPage={currPage} />
         </>
     )

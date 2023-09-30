@@ -3,10 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-export function ToyPreview({ toy, onRemoveToy }) {
+export function ToyPreview({ toy, onRemoveToy, isAdmin }) {
     const { name, price, inStock, _id } = toy
     const navigate = useNavigate()
-    const isAdmin = useSelector(storeState => storeState.userModule.user.isAdmin)
 
     return (
         <div className={'toy-preview'} onClick={() => navigate(`/toy/${toy._id}`)}>
