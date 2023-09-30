@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { toyService } from "../services/toy.service"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
-import { editToy } from "../store/actions/toy.action"
+import { editToy, addNewMsg } from "../store/actions/toy.action"
 import { MsgsList } from "../cmps/MsgsList"
 import { AddMsg } from "../cmps/AddMsg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -32,6 +32,16 @@ export function ToyDetails() {
         }
     }
 
+
+    async function onAddNewMsg(toyId, msg) {
+        try {
+            await addNewMsg(toyId, msg)
+            showSuccessMsg(`Added new message!`)
+            loadToy()
+        } catch (err) {
+            showErrorMsg('Could\'nt add message at this time..')
+        }
+    }
 
     async function onBlurEdit({ target }) {
         const field = target.dataset.name
@@ -89,7 +99,7 @@ export function ToyDetails() {
             </form>
 
             <section className="messages">
-                {loggedUser && <AddMsg loggedUser={loggedUser} />}
+                {loggedUser && <AddMsg toyId={toyId} loggedUser={loggedUser} onAddNewMsg={onAddNewMsg} />}
                 {toy.msgs && <MsgsList msgs={toy.msgs} />}
             </section>
         </>

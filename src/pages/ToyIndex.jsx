@@ -6,7 +6,7 @@ import { ToyList } from '../cmps/ToyList.jsx';
 import { ToyFilter } from '../cmps/ToyFilter.jsx';
 import { AddToyDialog } from '../cmps/AddToyDialog.jsx';
 import { PaginationBar } from '../cmps/PaginationBar.jsx';
-import { addToy, removeToy, setFilterBy } from '../store/actions/toy.action.js';
+import { addToy, removeToy, addNewMsg, setFilterBy } from '../store/actions/toy.action.js';
 
 export function ToyIndex() {
     const loggedUser = useSelector(storeState => storeState.userModule.user)
