@@ -24,18 +24,18 @@ export function AddMsg({ toyId, loggedUser, onAddNewMsg }) {
     }
 
     return (
-        <form action="" onChange={handleChange} onSubmit={(ev) => {
+        <form className="add-new-msg" onChange={handleChange} onSubmit={(ev) => {
             ev.preventDefault()
             onAddNewMsg(toyId, msgToBuild)
         }}>
             <label className="user-add-msg">
                 Your message:
-                <input type="text" name="txt" />
+                <input type="text" name="txt" placeholder="Add your message here.." required />
             </label>
+            <p>-Commenting as "{loggedUser.fullname}"</p>
             <button className="btn send-msg">
                 Send
             </button>
-            <p>Commenting as {loggedUser.fullname}</p>
         </form>
     )
 }
