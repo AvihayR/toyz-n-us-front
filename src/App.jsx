@@ -7,6 +7,7 @@ import { ToyIndex } from './pages/ToyIndex.jsx'
 import { ToyDetails } from './pages/ToyDetails.jsx'
 import { HomePage } from './pages/HomePage.jsx'
 import { About } from './pages/About.jsx'
+import { LoginPage } from './pages/LoginPage.jsx'
 
 export function App() {
   return (
@@ -18,6 +19,7 @@ export function App() {
             <Routes>
               <Route path="/toy/:toyId" element={<ToyDetails />} />
               <Route path="/toy" element={<ToyIndex />} />
+              <Route path="/login" element={<LoginPage />} />
               <Route path="/about" element={<About />} />
               <Route path="/" element={<HomePage />} />
               {/* <Route path="/todo/:todoId" element={<TodoDetails />} /> */}

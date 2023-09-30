@@ -6,8 +6,11 @@ import { editToy } from "../store/actions/toy.action"
 import _ from "lodash"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPencil } from "@fortawesome/free-solid-svg-icons"
+import { useSelector } from "react-redux"
 
 export function ToyDetails() {
+    const loggedUser = useSelector(storeState => storeState.userModule.user)
+    const isAdmin = !loggedUser ? false : loggedUser.isAdmin
     const [toy, setToy] = useState(null)
     const { toyId } = useParams()
     const navigate = useNavigate()
@@ -55,23 +58,24 @@ export function ToyDetails() {
     return (
         <form className="toy-details">
             <span className="editable">
-                <h2 contentEditable
+                <h2 contentEditable={isAdmin}
                     suppressContentEditableWarning={true}
                     onBlur={onBlurEdit}
                     data-name="name"
                     className="name">
                     {name}
                 </h2>
-                <FontAwesomeIcon icon={faPencil} />
+                {isAdmin && <FontAwesomeIcon icon={faPencil} />}
             </span>
             <span className="editable">
-                <h3 className="price">$ <span contentEditable
-                    suppressContentEditableWarning={true}
-                    onBlur={onBlurEdit}
-                    data-name='price'>{price}
-                </span>
+                <h3 className="price">$
+                    <span contentEditable={isAdmin}
+                        suppressContentEditableWarning={true}
+                        onBlur={onBlurEdit}
+                        data-name='price'>{price}
+                    </span>
                 </h3>
-                <FontAwesomeIcon icon={faPencil} />
+                {isAdmin && <FontAwesomeIcon icon={faPencil} />}
             </span>
 
             <h3 className={inStock ? 'stock' : 'out-of-stock'}>{inStock ? 'In stock!' : 'Currently not in stock.'}</h3>
