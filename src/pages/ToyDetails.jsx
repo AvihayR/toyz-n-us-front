@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
-import { toyService } from "../services/toy.service"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { editToy, addNewMsg } from "../store/actions/toy.action"
 import { MsgsList } from "../cmps/MsgsList"
@@ -9,16 +8,23 @@ import { AddMsg } from "../cmps/AddMsg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPencil } from "@fortawesome/free-solid-svg-icons"
 import _ from "lodash"
+import { toyService } from "../services/toy.service"
+import { reviewService } from "../services/review.service.js"
+
+import { ReviewList } from "../cmps/ReviewList"
+
 
 export function ToyDetails() {
     const loggedUser = useSelector(storeState => storeState.userModule.user)
     const isAdmin = !loggedUser ? false : loggedUser.isAdmin
     const [toy, setToy] = useState(null)
+    const [reviews, setReviews] = useState(null)
     const { toyId } = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
         loadToy()
+        loadReviews()
     }, [toyId])
 
     async function loadToy() {
@@ -32,6 +38,15 @@ export function ToyDetails() {
         }
     }
 
+    async function loadReviews() {
+        try {
+            const reviews = await reviewService.query({ byToyId: toyId })
+            setReviews(reviews)
+        } catch (err) {
+            console.log('Had issues in toy details', err)
+            showErrorMsg('Cannot load reviews')
+        }
+    }
 
     async function onAddNewMsg(toyId, msg) {
         try {
@@ -101,6 +116,10 @@ export function ToyDetails() {
             <section className="messages">
                 {loggedUser && <AddMsg toyId={toyId} loggedUser={loggedUser} onAddNewMsg={onAddNewMsg} />}
                 {toy.msgs && <MsgsList msgs={toy.msgs} />}
+            </section>
+
+            <section className="reviews">
+                <ReviewList reviews={reviews} />
             </section>
         </>
     )
