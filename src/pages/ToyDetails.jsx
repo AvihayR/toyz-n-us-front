@@ -21,6 +21,7 @@ export function ToyDetails() {
     const [reviews, setReviews] = useState(null)
     const { toyId } = useParams()
     const navigate = useNavigate()
+    const defaultImgUrl = 'https://res.cloudinary.com/dgsfbxsed/image/upload/v1696193040/ljswqcggvljmgsxmnelj.png'
 
     useEffect(() => {
         loadToy()
@@ -91,10 +92,11 @@ export function ToyDetails() {
     }
 
     if (!toy) return <div>Loading...</div>
-    const { name, price, inStock, createdAt, labels, _id, } = toy
+    const { name, price, inStock, createdAt, labels, _id, imgUrl } = toy
     return (
         <>
             <form className="toy-details">
+                {<img className="toy-img" src={imgUrl ? imgUrl : defaultImgUrl} alt="Toy image" />}
                 <span className="editable">
                     <h2 contentEditable={isAdmin}
                         suppressContentEditableWarning={true}

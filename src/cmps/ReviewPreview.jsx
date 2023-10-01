@@ -1,5 +1,5 @@
 export function ReviewPreview({ review }) {
-    console.log(review)
+    // console.log(review)
     return (
         <>
             <h6>Review preview</h6>

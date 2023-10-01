@@ -22,8 +22,6 @@ export function LoginPage() {
         }
     }
 
-    console.log(reviews)
-
     return (
         <>
             <LoginSignup />

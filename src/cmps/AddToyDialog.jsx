@@ -9,10 +9,11 @@ import { Checkbox, FormControlLabel } from '@mui/material';
 import { AddBtn } from './AddBtn';
 import { useState } from 'react';
 import { toyService } from '../services/toy.service';
+import { ImgUploader } from './ImgUploader';
 
 export function AddToyDialog({ onAddToy }) {
     const [open, setOpen] = useState(false);
-    const [toyToBuild, editToy] = useState(toyService.getEmptyToy())
+    const [toyToBuild, editToyToBuild] = useState(toyService.getEmptyToy())
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -38,9 +39,9 @@ export function AddToyDialog({ onAddToy }) {
             default:
                 break;
         }
-        editToy(prevToy => ({ ...prevToy, createdAt: Date.now(), [field]: value }))
+        editToyToBuild(prevToy => ({ ...prevToy, createdAt: Date.now(), [field]: value }))
     }
-
+    console.log(toyToBuild)
     return (
         <div className='add-toy-container'>
             <AddBtn handleClickOpen={handleClickOpen} />
@@ -99,6 +100,7 @@ export function AddToyDialog({ onAddToy }) {
                         />
                     } label="Mark in stock?" />
 
+                    <ImgUploader onUploaded={editToyToBuild} />
 
                 </DialogContent>
                 <DialogActions>
