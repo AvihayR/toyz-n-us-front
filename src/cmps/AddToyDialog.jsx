@@ -41,7 +41,6 @@ export function AddToyDialog({ onAddToy }) {
         }
         editToyToBuild(prevToy => ({ ...prevToy, createdAt: Date.now(), [field]: value }))
     }
-    console.log(toyToBuild)
     return (
         <div className='add-toy-container'>
             <AddBtn handleClickOpen={handleClickOpen} />
