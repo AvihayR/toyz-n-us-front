@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
-import { editToy, addNewMsg } from "../store/actions/toy.action"
+import { editToy, addNewMsg, loadReviews } from "../store/actions/toy.action"
 import { MsgsList } from "../cmps/MsgsList"
 import { AddMsg } from "../cmps/AddMsg"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -10,7 +10,7 @@ import { faPencil } from "@fortawesome/free-solid-svg-icons"
 import _ from "lodash"
 import { toyService } from "../services/toy.service"
 import { reviewService } from "../services/review.service.js"
-
+import { AddToyReview } from "../cmps/AddToyReview.jsx"
 import { ReviewList } from "../cmps/ReviewList"
 
 
@@ -24,7 +24,7 @@ export function ToyDetails() {
 
     useEffect(() => {
         loadToy()
-        loadReviews()
+        onloadReviews()
     }, [toyId])
 
     async function loadToy() {
@@ -38,9 +38,9 @@ export function ToyDetails() {
         }
     }
 
-    async function loadReviews() {
+    async function onloadReviews() {
         try {
-            const reviews = await reviewService.query({ byToyId: toyId })
+            const reviews = await loadReviews({ byToyId: toyId })
             setReviews(reviews)
         } catch (err) {
             console.log('Had issues in toy details', err)
@@ -55,6 +55,17 @@ export function ToyDetails() {
             loadToy()
         } catch (err) {
             showErrorMsg('Could\'nt add message at this time..')
+        }
+    }
+
+    async function onAddNewReview(review) {
+        review.toyId = toyId
+        try {
+            await reviewService.add(review)
+            showSuccessMsg(`Added new review!`)
+            onloadReviews()
+        } catch (err) {
+            showErrorMsg('Could\'nt add review at this time..')
         }
     }
 
@@ -78,7 +89,6 @@ export function ToyDetails() {
             }
         }
     }
-
 
     if (!toy) return <div>Loading...</div>
     const { name, price, inStock, createdAt, labels, _id, } = toy
@@ -117,8 +127,8 @@ export function ToyDetails() {
                 {loggedUser && <AddMsg toyId={toyId} loggedUser={loggedUser} onAddNewMsg={onAddNewMsg} />}
                 {toy.msgs && <MsgsList msgs={toy.msgs} />}
             </section>
-
             <section className="reviews">
+                <AddToyReview onAddNewReview={onAddNewReview} />
                 <ReviewList reviews={reviews} />
             </section>
         </>

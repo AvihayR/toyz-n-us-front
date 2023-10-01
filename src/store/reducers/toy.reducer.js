@@ -8,7 +8,6 @@ export const EDIT_TOY = 'EDIT_TOY'
 export const SET_FILTER_BY = 'SET_FILTER_BY'
 export const LOAD_TOYS_FROM_STORAGE = 'LOAD_TOYS_FROM_STORAGE'
 
-const loggedUser = userService.getLoggedinUser()
 
 const initialState = {
     toys: [],

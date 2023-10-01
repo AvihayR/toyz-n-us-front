@@ -1,3 +1,4 @@
+import { reviewService } from "../../services/review.service.js"
 import { toyService } from "../../services/toy.service.js"
 import { userService } from "../../services/user.service.js"
 import { SET_FILTER_BY, ADD_TOY, REMOVE_TOY, LOAD_TOYS_FROM_STORAGE, EDIT_TOY } from '../reducers/toy.reducer.js'
@@ -8,6 +9,15 @@ export async function loadToys(filterBy = toyService.getDefaultFilter()) {
     try {
         const toys = await toyService.query(filterBy)
         store.dispatch({ type: LOAD_TOYS_FROM_STORAGE, toys })
+    } catch (err) {
+        console.log('Error:', err)
+        throw err
+    }
+}
+
+export async function loadReviews(filterBy = {}) {
+    try {
+        return await reviewService.query(filterBy)
     } catch (err) {
         console.log('Error:', err)
         throw err

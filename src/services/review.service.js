@@ -15,8 +15,6 @@ function query(filterBy) {
     if (filterBy.byUserId) queryStr = `?byUserId=${filterBy.byUserId}`
     if (filterBy.byToyId) queryStr = `?byToyId=${filterBy.byToyId}`
 
-    console.log(queryStr)
-
     return httpService.get(`review${queryStr}`)
     // return storageService.query('review')
 }
@@ -26,8 +24,8 @@ async function remove(reviewId) {
     // await storageService.remove('review', reviewId)
 }
 
-async function add({ txt, aboutUserId }) {
-    const addedReview = await httpService.post(`review`, { txt, aboutUserId })
+async function add({ txt, toyId }) {
+    const addedReview = await httpService.post(`review`, { txt, toyId })
 
     // const aboutUser = await userService.getById(aboutUserId)
 
