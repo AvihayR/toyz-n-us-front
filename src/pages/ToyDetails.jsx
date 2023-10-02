@@ -12,7 +12,7 @@ import { toyService } from "../services/toy.service"
 import { reviewService } from "../services/review.service.js"
 import { AddToyReview } from "../cmps/AddToyReview.jsx"
 import { ReviewList } from "../cmps/ReviewList"
-
+import { ChatDialog } from "../cmps/ChatDialog.jsx"
 
 export function ToyDetails() {
     const loggedUser = useSelector(storeState => storeState.userModule.user)
@@ -90,11 +90,11 @@ export function ToyDetails() {
             }
         }
     }
-
     if (!toy) return <div>Loading...</div>
     const { name, price, inStock, createdAt, labels, _id, imgUrl } = toy
     return (
         <>
+            <ChatDialog toyId={toyId} />
             <form className="toy-details">
                 {<img className="toy-img" src={imgUrl ? imgUrl : defaultImgUrl} alt="Toy image" />}
                 <span className="editable">
@@ -130,8 +130,8 @@ export function ToyDetails() {
                 {toy.msgs && <MsgsList msgs={toy.msgs} />}
             </section>
             <section className="reviews">
-                <AddToyReview onAddNewReview={onAddNewReview} />
-                <ReviewList reviews={reviews} />
+                {loggedUser && <AddToyReview onAddNewReview={onAddNewReview} />}
+                {loggedUser && <ReviewList reviews={reviews} />}
             </section>
         </>
     )
